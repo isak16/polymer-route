@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Polymer Labb</title>
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+    <link rel="import" href="bower_components/app-layout/app-layout.html">
+    <link href="bower_components/paper-icon-button/paper-icon-button.html" rel="import">
+    <link href="bower_components/iron-icons/iron-icons.html" rel="import">
+
+    <link rel="import" href="elements/nav-header.html">
+    <link rel="import" href="elements/route-div.html">
+    <link rel="import" href="elements/sidebar-ul.html">
+    <link rel="import" href="elements/age-verify.html">
+
+</head>
+<body>
+    <app-header-layout>
+        <app-header>
+            <app-toolbar>
+                <paper-icon-button icon="menu" onclick="drawer.toggle()"></paper-icon-button>
+                <div main-title>Polymer Applikation</div>
+            </app-toolbar>
+        </app-header>
+    </app-header-layout>
+    <app-drawer id="drawer" swipe-open>
+
+        <nav-header></nav-header>
+        <sidebar-ul></sidebar-ul>
+
+    </app-drawer>
+
+    <route-div></route-div>
+
+</body>
+</html>

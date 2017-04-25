@@ -1,0 +1,34 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+
+<dom-module id="sidebar-ul" noscript >
+
+    <style>
+        ul{
+            padding: 0;
+            text-align: center;
+            font-family: sans-serif;
+        }
+        li{
+            border-bottom: 1px solid darkgray;
+            width: 100%;
+            padding: 10px 0;
+            list-style-type: none;
+        }
+        a:link, a:visited{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+
+    <template>
+        <ul>
+            <li><a href="#start">Startsida</a></li>
+            <li><a href="#personnummer">Personummer</a></li>
+        </ul>
+    </template>
+</dom-module>
+
+<script>
+    Polymer({is: 'sidebar-ul'});
+</script>﻿

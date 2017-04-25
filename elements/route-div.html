@@ -1,0 +1,22 @@
+<link href="../bower_components/polymer/polymer.html" rel="import">
+<link href="../bower_components/app-route/app-route.html" rel="import">
+<link href="../bower_components/app-route/app-location.html" rel="import">
+<link href="../bower_components/iron-pages/iron-pages.html" rel="import">
+<link rel="import" href="start-page.html">
+
+
+
+<dom-module id="route-div">
+    <template>
+
+        <app-location route="{{route}}" use-hash-as-path></app-location>
+
+        <app-route data="{{data}}" pattern=":page" route="{{route}}"></app-route>
+
+        <iron-pages attr-for-selected="name" selected="[[data.page]]">
+            <start-page name="start" author="© Isak Larsson"></start-page>
+            <age-verify name="personnummer"></age-verify>
+        </iron-pages>
+    </template>
+    <script>Polymer({ is: 'route-div' });</script>
+</dom-module>

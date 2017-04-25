@@ -1,0 +1,104 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<dom-module id="age-verify">
+
+<template>
+    <style>
+        :host {
+            border: solid 2px black;
+            display: block;
+            font-family: sans-serif;
+            text-align: center;
+            width: 920px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 50px;
+        }
+        div{
+            background-color: rgba(0, 0, 0, 0.14);
+        }
+
+    </style>
+    <h1>Birthday checker</h1>
+    <template is="dom-repeat" items="{{persons}}">
+        <div>
+            <h2>{{item.name}}</h2>
+            <h3>{{item.personnr}}</h3>
+           <h3>Birthday: {{checkIfBirth(item.personnr)}} </h3>
+        </div>
+    </template>
+</template>
+
+
+<script>
+    Polymer({
+        is: 'age-verify',
+        ready: function() {
+            this.persons = [
+                {
+                    "name": "David",
+                    "personnr": "950425-9257"
+                }
+                ,
+                {
+                    "name": "Nadja",
+                    "personnr": "740630-8069"
+                },
+                {
+                    "name": "FejkLegg",
+                    "personnr": "920210-4016"
+                },
+                {
+                    "name": "Sebastian",
+                    "personnr": "990629-6994"
+                },
+                {
+                    "name": "Erik",
+                    "personnr": "890308-0466"
+                },
+                {
+                    "name": "Johan",
+                    "personnr": "700512-8421"
+                },
+                {
+                    "name": "Stina",
+                    "personnr": "840603-4978"
+                },
+                {
+                    "name": "Mathilda",
+                    "personnr": "080310-2888"
+                }
+            ]
+        },
+        checkIfBirth: function (personNr){
+            //Dagens datum i variabler som används i personummeruträkningsfunktionerna
+            var date = new Date();
+            var month = date.getMonth() + 1;
+            var day = date.getDate();
+
+            if (month < 10) {
+                month = "0" + month;
+            }
+            if (day < 10) {
+                day = "0" + month;
+            }
+
+
+            var inputYear = personNr.slice(0, 2);
+            var inputMonth = personNr.slice(2, 4);
+            var inputDay = personNr.slice(4, 6);
+
+            //Formatera om till rätt format
+            var dateRightFromat = inputMonth+"/"+inputDay+"/"+inputYear;
+
+            var dateOfBirth = new Date(dateRightFromat);
+            var tempMonth = month - dateOfBirth.getMonth() - 1;
+            var tempDay = day - dateOfBirth.getDate();
+
+            //Sätter in boolean-uttrycket direkt in i return som retunerar true/false
+            return tempDay === 0 && tempMonth === 0;
+
+        }
+    });
+</script>
+</dom-module>
